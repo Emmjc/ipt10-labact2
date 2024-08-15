@@ -20,6 +20,15 @@ $form_data = $_SESSION;
 dump_session();
 
 session_destroy();
+
+$fp = fopen('registrations.csv', 'w');
+
+  foreach ($form_data as $key => $val) {
+    $row_data = array($key, $val); // Create an array with key and value
+    fputcsv($fp, $row_data);
+  }
+
+  fclose($fp);
 ?>
 <html>
 <head>
@@ -62,8 +71,6 @@ session_destroy();
             ?>
             </tbody>
         </table>
-      
-
       </div>
     </div>
   </div>
