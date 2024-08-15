@@ -1,8 +1,8 @@
 <?php
 
-define('CUSTOMERS_FILE_PATH', 'customers-100.csv');
+define('CUSTOMERS_FILE_PATH', 'customers-100000.csv');
 
-function get_hundred_customers_data( $filter_letter )
+function get_thousand_customers_data( $filter_letter )
 {
     $opened_file_handler = fopen(CUSTOMERS_FILE_PATH, 'r');
 
@@ -34,7 +34,7 @@ function get_hundred_customers_data( $filter_letter )
 
 $chosen_letter = $_GET['letter'];
 
-$customers = get_hundred_customers_data($chosen_letter);
+$customers = get_thousand_customers_data($chosen_letter);
 
 ?>
 <html>

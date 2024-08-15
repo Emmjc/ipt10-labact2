@@ -1,8 +1,8 @@
 <?php
 
-define('CUSTOMERS_FILE_PATH', 'customers-100.csv');
+define('CUSTOMERS_FILE_PATH', 'customers-100000.csv');
 
-function get_hundred_customers_data()
+function get_thousand_customers_data()
 {
     $opened_file_handler = fopen(CUSTOMERS_FILE_PATH, 'r');
 
@@ -30,7 +30,8 @@ function get_hundred_customers_data()
     ];
 }
 
-$customers = get_hundred_customers_data();
+$customers = get_thousand_customers_data();
+
 
 ?>
 <html>
@@ -80,6 +81,17 @@ The dataset is retrieved from this URL <a href="https://www.datablist.com/learn/
     </tbody>
 </table>
 
+<?php
+$time_start = microtime(true);
+
+// Sleep for a while
+usleep(100);
+
+$time_end = microtime(true);
+$time = $time_end - $time_start;
+
+echo "Did nothing in $time seconds\n";
+?>
 
 </body>
 </html>
